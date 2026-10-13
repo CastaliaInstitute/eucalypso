@@ -17,3 +17,13 @@ let scope='global'
 render()
 document.querySelectorAll('.scope').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('.scope').forEach(b=>b.classList.remove('active')); button.classList.add('active'); scope=button.dataset.scope; render(scope,document.querySelector('#lens').value) }))
 document.querySelector('#lens').addEventListener('change', event => render(scope,event.target.value))
+
+const observationGrid = document.querySelector('#observations')
+let observationData = null
+const renderObservations = () => {
+  if (!observationData) return
+  const selected = observationData.scopes[scope]
+  observationGrid.innerHTML = observationData.observations.map(item => `<a class="observation" href="${item.sourceUrl}" target="_blank" rel="noreferrer"><span>${item.label}</span><strong>${item[scope].toFixed(1)}</strong><small>${item.unit} · ${item.year} · ${selected.label}</small></a>`).join('')
+}
+fetch('data/capacity-observations.json').then(response => response.json()).then(data => { observationData = data; renderObservations() }).catch(() => { observationGrid.innerHTML = '<span class="data-loading">Registered observations unavailable.</span>' })
+document.querySelectorAll('.scope').forEach(button => button.addEventListener('click', renderObservations))

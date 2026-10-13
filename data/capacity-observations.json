@@ -1,0 +1,17 @@
+{
+  "retrieved": "2026-10-13",
+  "source": {
+    "name": "Our World in Data Grapher",
+    "url": "https://ourworldindata.org/grapher/",
+    "underlying": "World Bank, International Telecommunication Union, and UN Population Division series as identified in each Grapher metadata page"
+  },
+  "scopes": {
+    "global": { "label": "World", "code": "OWID_WRL" },
+    "local": { "label": "United States", "code": "USA" }
+  },
+  "observations": [
+    { "id": "electricity", "label": "Access to electricity", "unit": "% of population", "year": 2024, "global": 91.92648, "local": 100, "sourceUrl": "https://ourworldindata.org/grapher/share-of-the-population-with-access-to-electricity" },
+    { "id": "internet", "label": "Individuals using the Internet", "unit": "% of population", "year": 2024, "global": 73.6, "local": 94.6938, "sourceUrl": "https://ourworldindata.org/grapher/share-of-individuals-using-the-internet" },
+    { "id": "life-expectancy", "label": "Life expectancy at birth", "unit": "years", "year": 2023, "global": 73.1694, "local": 79.3043, "sourceUrl": "https://ourworldindata.org/grapher/life-expectancy" }
+  ]
+}
